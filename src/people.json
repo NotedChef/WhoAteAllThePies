@@ -1,0 +1,160 @@
+{
+    "People": [
+        {
+            "Id": 1,
+            "FullName": "Barry Sanders",
+            "Weights": [
+                {
+                    "Id": 1,
+                    "Kg": 70,
+                    "Date": "2017-01-31",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 71,
+                    "Date": "2017-02-28",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 72,
+                    "Date": "2017-03-31",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 73,
+                    "Date": "2017-04-30",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 74,
+                    "Date": "2017-05-31",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 75,
+                    "Date": "2017-06-30",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 76,
+                    "Date": "2017-07-31",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 77,
+                    "Date": "2017-08-31",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 76,
+                    "Date": "2017-09-30",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 75,
+                    "Date": "2017-10-31",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 76,
+                    "Date": "2017-11-30",
+                    "PersonId": 1
+                },
+                {
+                    "Id": 1,
+                    "Kg": 75,
+                    "Date": "2017-12-31",
+                    "PersonId": 1
+                }
+            ]
+        },
+        {
+            "Id": 2,
+            "FullName": "James Dean",
+            "Weights": [
+                {
+                    "Id": 1,
+                    "Kg": 65,
+                    "Date": "2017-01-31",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 64,
+                    "Date": "2017-02-28",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 64,
+                    "Date": "2017-03-31",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 66,
+                    "Date": "2017-04-30",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 66,
+                    "Date": "2017-05-31",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 65,
+                    "Date": "2017-06-30",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 64,
+                    "Date": "2017-07-31",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 66,
+                    "Date": "2017-08-31",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 65,
+                    "Date": "2017-09-30",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 65,
+                    "Date": "2017-10-31",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 64,
+                    "Date": "2017-11-30",
+                    "PersonId": 2
+                },
+                {
+                    "Id": 1,
+                    "Kg": 65,
+                    "Date": "2017-12-31",
+                    "PersonId": 2
+                }
+            ]
+        }
+    ]
+}
