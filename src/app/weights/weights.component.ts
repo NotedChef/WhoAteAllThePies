@@ -43,48 +43,21 @@ export class WeightsComponent implements OnInit {
     this.chart.chartData = chartData;
     this.chart.chartLabels = this.months;
     this.chart.chartType = 'line';
-    this.chart.chartLegend = true;
+    this.chart.chartLegend = false;
     this.chart.chartOptions = {
-      responsive: true
+      responsive: true,
+      title: {
+        display: true,
+        text: 'WHO ATE ALL THE PIES?'
+      }
     };
     this.chart.chartColors = this.colors.map((color) => {
       return {
-        fillColor: 'rgba(220,220,220, 0.1)',
-        strokeColor: color,
+        backgroundColor: 'rgba(255, 255, 255, 0.0)', // white fully transparent
         pointColor: color,
-        borderColor: color,
-        pointStrokeColor: '#fff',
-        pointHighlightFill: '#fff',
-        pointHighlightStroke: color
+        borderColor: color
       };
     });
-    // this.chart.chartColors = [
-    //   { // grey
-    //     backgroundColor: 'rgba(148,159,177,0.2)',
-    //     borderColor: 'rgba(148,159,177,1)',
-    //     pointBackgroundColor: 'rgba(148,159,177,1)',
-    //     pointBorderColor: '#fff',
-    //     pointHoverBackgroundColor: '#fff',
-    //     pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    //   },
-    //   { // dark grey
-    //     backgroundColor: 'rgba(77,83,96,0.2)',
-    //     borderColor: 'rgba(77,83,96,1)',
-    //     pointBackgroundColor: 'rgba(77,83,96,1)',
-    //     pointBorderColor: '#fff',
-    //     pointHoverBackgroundColor: '#fff',
-    //     pointHoverBorderColor: 'rgba(77,83,96,1)'
-    //   },
-    //   { // grey
-    //     backgroundColor: 'rgba(148,159,177,0.2)',
-    //     borderColor: 'rgba(148,159,177,1)',
-    //     pointBackgroundColor: 'rgba(148,159,177,1)',
-    //     pointBorderColor: '#fff',
-    //     pointHoverBackgroundColor: '#fff',
-    //     pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    //   }
-    // ]
-
   }
 }
 
