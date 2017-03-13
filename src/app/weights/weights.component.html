@@ -4,19 +4,20 @@
       <img src="./../../assets/images/allthepies.jpg" alt="Bite out of pie logo" class="img-responsive" height="100" width="100">
     </div>
   </div>
-  <!--<div class="row">
+  <div class="row">
     <div class="col-md-6">
       <div style="display: block;">
         <canvas baseChart width="400" height="400" 
             [datasets]="chart.chartData" 
-            [labels]="chart.chartLabels" 
+            [labels]="chart.chartLabels"  
             [options]="chart.chartOptions"
             [colors]="chart.chartColors" 
+            [legend]="chart.chartLegend"
             [chartType]="chart.chartType">
         </canvas>
       </div>
-    </div>-->
-    <div class="row col-lg-offset-1">
+    </div>
+    <div class="row" style="margin: 20px;">
       <div class="table-responsive">
         <table class="table table-striped">
           <thead>
@@ -33,3 +34,4 @@
       </div>
     </div>
   </div>
+  {{ chart.chartColor | json }}

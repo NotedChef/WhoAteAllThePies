@@ -17,4 +17,6 @@ export class Chart {
     chartOptions: Object;
     chartColors: any[];
     chartType: string;
+    chartLegend?: boolean;
+// tslint:disable-next-line:eofline
 }
