@@ -1,37 +1,48 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-2 col-lg-offset-5">
-      <img src="./../../assets/images/allthepies.jpg" alt="Bite out of pie logo" class="img-responsive" height="100" width="100">
-    </div>
+<div class="row">
+  <div class="col-xs-2 col-xs-offset-5">
+    <img src="./../../assets/images/allthepies.jpg" alt="Bite out of pie logo" class="img-responsive" height="100" width="100">
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div style="display: block;">
-        <canvas baseChart width="400" height="400" 
+</div>
+
+<nav class="navbar navbar-default">
+  <span>
+    <button (click)="changeYear(-1)" type="button" class="btn btn-default">
+        <i class="glyphicon glyphicon-chevron-left"></i></button>
+    <label>{{selectedYear}}</label>
+    <button (click)="changeYear(1)" type="button" class="btn btn-default"><i class="glyphicon glyphicon-chevron-right"></i></button>
+    <button class="btn btn-default navbar-btn pull-right" (click)="save()">Save</button>
+    <button class="btn btn-default navbar-btn pull-right" (click)="create()">Add Person</button>
+  </span>
+</nav>
+
+<div class="row">
+  <div class="col-xs-10 col-xs-offset-1">
+    <canvas baseChart 
             [datasets]="chart.chartData" 
-            [labels]="chart.chartLabels"  
-            [options]="chart.chartOptions"
-            [colors]="chart.chartColors" 
-            [legend]="chart.chartLegend"
+            [labels]="chart.chartLabels" 
+            [options]="chart.chartOptions" 
+            [colors]="chart.chartColors"
+            [legend]="chart.chartLegend" 
             [chartType]="chart.chartType">
-        </canvas>
-      </div>
-    </div>
-    <div class="row" style="margin: 20px;">
-      <div class="table-responsive">
-        <table class="table table-striped">
-          <thead>
-            <th>Name</th>
-            <th *ngFor="let month of months">{{month}}</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let person of people">
-              <td>{{person.FullName}}</td>
-              <td *ngFor="let weight of person.Weights">{{weight.Kg}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    </canvas>
   </div>
-  {{ chart.chartColor | json }}
+</div>
+
+<div class="row">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <th>Name</th>
+          <th *ngFor="let month of months">{{month}}</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of people">
+            <td><input type="text" class="name" [(ngModel)]="person.FullName"></td>
+            <td *ngFor="let weight of person.Weights">
+              <input type="text" (change)="updateChart()" [(ngModel)]="weight.Kg">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

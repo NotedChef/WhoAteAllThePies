@@ -28,8 +28,47 @@ export class WeightsComponent implements OnInit {
       .subscribe(people => {
         this.people = people;
         this.formatChartData();
-      }
-      );
+      });
+  }
+
+  save() {
+    console.log('People saved');
+    // this.peopleService.put(this.people)
+    //   .subscribe(people => {
+    //   });
+  }
+
+  create() {
+    // const person = new Person();
+    console.log('New person created');
+    // this.peopleService.create(person, this.selectedYear)
+    //   .subscribe(person => {
+    //     this.people = [...this.people, person];
+    //   });
+
+  }
+
+  delete(person: Person) {
+    console.log(`Successfully deleted person`);
+    // this.peopleService.delete(person)
+    //     .subscribe((person) => {
+    //         this.people = _.remove(this.people, (p) => {
+    //             return p.Id !== person.Id;
+    //         });
+    //         console.log(`successfully deleted person`);
+    //     });
+  }
+
+
+  updateChart() {
+    this.people = [...this.people];
+    this.formatChartData();
+  }
+
+  changeYear(amount) {
+    this.date.setFullYear(this.date.getFullYear() + amount);
+    this.selectedYear = this.date.getFullYear();
+    this.get(this.date);
   }
 
   formatChartData() {
@@ -53,7 +92,7 @@ export class WeightsComponent implements OnInit {
     };
     this.chart.chartColors = this.colors.map((color) => {
       return {
-        backgroundColor: 'rgba(255, 255, 255, 0.0)', // white fully transparent
+        backgroundColor: 'rgba(215, 215, 215, 0.2)', // white fully transparent
         pointColor: color,
         borderColor: color
       };
