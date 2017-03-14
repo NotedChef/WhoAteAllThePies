@@ -41,6 +41,8 @@ export class WeightsComponent implements OnInit {
   create() {
     // const person = new Person();
     console.log('New person created');
+    let person = new Person();
+    this.people = [...this.people, person]
     // this.peopleService.create(person, this.selectedYear)
     //   .subscribe(person => {
     //     this.people = [...this.people, person];
