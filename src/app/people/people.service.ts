@@ -8,7 +8,7 @@ import { Person } from '../models';
 @Injectable()
 export class PeopleService {
   // tslint:disable-next-line:no-inferrable-types
-  api: string = 'http://pigofthemonth.com/api';
+  api: string = 'http://pigofthemonthapi.com/api';
   headers: Headers;
 
   constructor(private http: Http) {
@@ -16,14 +16,12 @@ export class PeopleService {
   }
 
   get(date: Date): Observable<Person[]> {
-    // return this.http.get(`${this.api}/people/GetPersonsByYear/${date.toISOString()}`)
-    return this.http.get(`${this.api}/people/GetPersonByYear/${date}`)
+    return this.http.get(`${this.api}/people/${date.getFullYear()}`)
       .map((response: Response) => response.json())
       .catch(this.handleError);
   }
 
   create(person: Person, year: Number): Observable<Person> {
-    // return this.http.get(`${this.api}/people/GetPersonsByYear/${date.toISOString()}`)
     return this.http.post(`${this.api}/people/${year}`,
       JSON.stringify(person), { headers: this.headers }
     )
@@ -32,8 +30,7 @@ export class PeopleService {
   }
 
   put(people: Person[]): Observable<Person[]> {
-    // return this.http.get(`${this.api}/people/GetPersonsByYear/${date.toISOString()}`)
-    return this.http.post(`${this.api}/people`,
+     return this.http.put(`${this.api}/people`,
       JSON.stringify(people), { headers: this.headers }
     )
       .map((response: Response) => response.json())
