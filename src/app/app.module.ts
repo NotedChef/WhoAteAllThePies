@@ -30,7 +30,7 @@ import { LineChartDemoComponent } from './line-chart-demo/line-chart-demo.compon
     {
       provide: Http,
       deps: [MockBackend, BaseRequestOptions, XHRBackend, MockService],
-      useFactory: (mockBackend, options, realBackend) => new Http(mockBackend, options)
+      useFactory: (mockBackend, options, realBackend) => {return new Http(mockBackend, options);}
     }
   ],
   bootstrap: [AppComponent]
