@@ -75,7 +75,7 @@ export class MockService {
                     console.log('Get mock');
                     if (c.request.url.indexOf('people') > 0) {
                         const year = +this.getUrlParam(c.request.url, 1);
-                        console.log(year);
+                        // console.log(year);
                         const res = new Response(
                             new ResponseOptions({
                                 body: JSON.stringify(this.getPeopleByYear(year))
@@ -133,11 +133,22 @@ export class MockService {
     }
 
     private getPeopleByYear(year: number) {
-        return this.MockDb;
-        // return MockDb.map((person) => {
-        //      return person.Weights.filter(w => {return w.Date.getFullYear() === year;});
-        // }
-        // );
+        const filteredMockDb: Person[] = this.MockDb;
+        let index: number;
+
+        for (const p of filteredMockDb) {
+           console.log(p.FullName);
+            index = 0;
+            for (const w of p.Weights) {
+               console.log(w);
+               if (w.Date.getFullYear() !== year) {
+                   p.Weights.splice(index);
+               }
+               index ++;
+            }
+         }
+        return filteredMockDb;
+
     }
 
     private getUrlParam(url: string, fromEnd: number) {
