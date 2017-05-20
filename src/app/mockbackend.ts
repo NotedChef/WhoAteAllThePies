@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 
 import { Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-
+// import { Observable } from 'rxjs/Observable';
+// import 'rxjs/add/operators/of';
 
 @Injectable()
 export class MockService {
@@ -147,7 +148,8 @@ export class MockService {
                index ++;
             }
          }
-        return filteredMockDb;
+       // return Observable.of(filteredMockDb);
+       return filteredMockDb;
 
     }
 

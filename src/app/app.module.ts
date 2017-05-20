@@ -10,6 +10,9 @@ import { WeightsComponent } from './weights/weights.component';
 import { MockBackend } from '@angular/http/testing';
 import { MockService } from './mockbackend';
 import { LineChartDemoComponent } from './line-chart-demo/line-chart-demo.component';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -21,16 +24,19 @@ import { LineChartDemoComponent } from './line-chart-demo/line-chart-demo.compon
     BrowserModule,
     FormsModule,
     HttpModule,
-    ChartsModule
+    ChartsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'WhoAteAllThePies'),
+    AngularFireDatabaseModule
   ],
-  providers: [PeopleService,
+  providers: [
+    PeopleService,
     BaseRequestOptions,
     MockBackend,
     MockService,
     {
       provide: Http,
       deps: [MockBackend, BaseRequestOptions, XHRBackend, MockService],
-      useFactory: (mockBackend, options, realBackend) => {return new Http(mockBackend, options); }
+      useFactory: (mockBackend, options, realBackend) => {return new Http(mockBackend, options)}
     }
   ],
   bootstrap: [AppComponent]

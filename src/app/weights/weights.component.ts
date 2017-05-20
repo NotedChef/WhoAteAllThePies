@@ -3,6 +3,7 @@ import * as moment from 'moment/moment';
 import { PeopleService } from '../people/people.service';
 import { Person, Chart } from '../models';
 import { ChartsModule } from 'ng2-charts';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-weights',
@@ -12,23 +13,29 @@ import { ChartsModule } from 'ng2-charts';
 export class WeightsComponent implements OnInit {
   months: string[] = moment.monthsShort();
   date: Date = new Date();
-  people: Person[];
+  db: AngularFireDatabase;
+  // people: Person[];
+  people: FirebaseListObservable<Person[]>;
   chart: Chart = new Chart();
   selectedYear: number = this.date.getFullYear();
   colors: string[] = ['red', 'blue', 'green', 'orange', 'pink', 'gold', 'purple', 'rose'];
 
-  constructor(private peopleService: PeopleService) { }
+  // constructor(private peopleService: PeopleService) { }
+  constructor(db: AngularFireDatabase) {
+    this.db = db;
+  }
 
   ngOnInit() {
     this.get(this.date);
   }
 
   get(date: Date) {
-    this.peopleService.get(date)
-      .subscribe(people => {
-        this.people = people;
-        this.formatChartData();
-      });
+    this.people = this.db.list('/people');
+    // this.peopleService.get(date)
+    //   .subscribe(people => {
+    //     this.people = people;
+    //     this.formatChartData();
+    //   });
   }
 
   save() {
@@ -39,18 +46,18 @@ export class WeightsComponent implements OnInit {
   }
 
   create() {
-    // const person = new Person();
     console.log('New person created');
-    let person = new Person();
-    this.peopleService.create(person, this.selectedYear)
-      .subscribe(person => {
-        this.people = [...this.people, person];
-      });
+    // // const person = new Person();
+    // const person = new Person();
+    // this.peopleService.create(person, this.selectedYear)
+    //   .subscribe(p => {
+    //     this.people = [...this.people, person];
+    //   });
 
   }
 
   delete(person: Person) {
-    console.log(`Successfully deleted person`);
+    console.log(`Deleted person`);
     // this.peopleService.delete(person)
     //     .subscribe((person) => {
     //         this.people = _.remove(this.people, (p) => {
@@ -62,8 +69,8 @@ export class WeightsComponent implements OnInit {
 
 
   updateChart() {
-    this.people = [...this.people];
-    this.formatChartData();
+    // this.people = [...this.people];
+    // this.formatChartData();
   }
 
   changeYear(amount) {
@@ -75,11 +82,11 @@ export class WeightsComponent implements OnInit {
   formatChartData() {
     const chartData = [];
     const chartLabels = [];
-    this.people.forEach((person) => {
-      chartData.push(
-        { data: person.Weights.map((w) => { return (w.Kg); }), label: person.FullName }
-      );
-    });
+    // this.people.forEach((person) => {
+    //   chartData.push(
+    //     { data: person.Weights.map((w) => { return (w.Kg); }), label: person.FullName }
+    //   );
+    // });
     this.chart.chartData = chartData;
     this.chart.chartLabels = this.months;
     this.chart.chartType = 'line';

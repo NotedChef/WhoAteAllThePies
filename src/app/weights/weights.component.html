@@ -46,4 +46,10 @@
       </table>
   </div>
 </div>
-{{people | json}}
+<hr/>
+
+<ul>
+    <li *ngFor="let person of people | async">
+      {{ person }}
+    </li>
+</ul>
