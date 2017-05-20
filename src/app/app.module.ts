@@ -14,11 +14,17 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 
+ const Mock = {
+      provide: Http,
+      deps: [MockBackend, BaseRequestOptions, XHRBackend, MockService],
+      useFactory: (mockBackend, options, realBackend) => {return new Http(mockBackend, options); }
+    };
+
 @NgModule({
   declarations: [
     AppComponent,
-    WeightsComponent,
-    LineChartDemoComponent
+    LineChartDemoComponent,
+    WeightsComponent
   ],
   imports: [
     BrowserModule,
@@ -33,11 +39,7 @@ import { environment } from '../environments/environment';
     BaseRequestOptions,
     MockBackend,
     MockService,
-    {
-      provide: Http,
-      deps: [MockBackend, BaseRequestOptions, XHRBackend, MockService],
-      useFactory: (mockBackend, options, realBackend) => {return new Http(mockBackend, options)}
-    }
+    Mock
   ],
   bootstrap: [AppComponent]
 })

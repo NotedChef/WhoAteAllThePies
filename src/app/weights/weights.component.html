@@ -36,7 +36,7 @@
           <th *ngFor="let month of months">{{month}}</th>
         </thead>
         <tbody>
-          <tr *ngFor="let person of people">
+          <tr *ngFor="let person of peopleChart">
             <td><input type="text" class="name" [(ngModel)]="person.FullName"></td>
             <td *ngFor="let weight of person.Weights">
               <input type="text" (change)="updateChart()" [(ngModel)]="weight.Kg">
@@ -48,8 +48,10 @@
 </div>
 <hr/>
 
-<ul>
-    <li *ngFor="let person of people | async">
-      {{ person }}
+<!--<ul>
+    <li *ngFor="let person of peopleChart">
+       {{person.FullName}}
     </li>
-</ul>
+</ul>-->
+ 
+
